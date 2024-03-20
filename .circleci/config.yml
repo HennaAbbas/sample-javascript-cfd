@@ -5,7 +5,7 @@ jobs:
   setup:
     working_directory: ~/project
     docker:
-    - image: cimg/node:latest
+    - image: cimg/node:current
     steps:
     - checkout
     - restore_cache:
@@ -25,7 +25,7 @@ jobs:
   lint_commit_message:
     working_directory: ~/project
     docker:
-    - image: cimg/node:latest
+    - image: cimg/node:current
     steps:
     - checkout
     - attach_workspace:
