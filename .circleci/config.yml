@@ -13,6 +13,7 @@ orbs:
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
   node: circleci/node@5
   cypress: cypress-io/cypress@2.1.0
+  commitlint: conventional-changelog/commitlint@1.0.0
 
 jobs:
   # Below is the definition of your job to test your Node app. You can rename and customize it as you want.
@@ -49,3 +50,4 @@ workflows:
           yarn: true
       # For running simple node tests, you could optionally instead use the node/test job from the orb to replicate and replace the manually defined "test" job above in fewer lines.
       # - node/test
+      - commitlint/lint
