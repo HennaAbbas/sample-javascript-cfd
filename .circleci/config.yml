@@ -28,6 +28,9 @@ jobs:
     - image: cimg/node:current
     steps:
     - checkout
+    - run: |
+          npm install conventional-changelog-conventionalcommits
+          npm install commitlint@latest
     # - attach_workspace:
     #     at: ~/project
     - run:
