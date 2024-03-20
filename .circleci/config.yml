@@ -1,5 +1,5 @@
 version: 2
-defaults:
+default: &default
   working_directory: ~/project
   docker:
   - image: circleci/node:latest
