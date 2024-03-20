@@ -29,8 +29,7 @@ jobs:
     steps:
     - checkout
     - run: |
-          sudo npm install -g @commitlint/cli
-          npm install commitlint@latest
+        npm install --save-dev @commitlint/config-conventional @commitlint/cli
     # - attach_workspace:
     #     at: ~/project
     - run:
