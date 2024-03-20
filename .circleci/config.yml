@@ -28,9 +28,9 @@ jobs:
     - image: cimg/node:18.9.0
     steps:
     - checkout
-    - run: |
-          npm install --save-dev husky
-          npx husky init
+    - run: npm install --save-dev husky
+    - run: npx husky init
+          
 
 # Add commit message linting to commit-msg hook
         echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
