@@ -1,12 +1,11 @@
 version: 2
-default: &default
-  working_directory: ~/project
-  docker:
-  - image: circleci/node:latest
+
 
 jobs:
   setup:
-    <<: *defaults
+  working_directory: ~/project
+  docker:
+  - image: circleci/node:latest
     steps:
     - checkout
     - restore_cache:
