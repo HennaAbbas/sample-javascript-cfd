@@ -30,10 +30,11 @@ jobs:
     - checkout
     - run: npm install --save-dev husky
     - run: npx husky init
+    - run: echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
           
 
 # Add commit message linting to commit-msg hook
-        echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+        
     - run: npx commitlint --from HEAD~1 --to HEAD --verbose
     - run:
         name: Define environment variable with latest commit's message
