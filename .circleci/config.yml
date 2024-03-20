@@ -2,40 +2,23 @@ version: 2
 
 #test
 jobs:
-  setup:
-    working_directory: ~/project
-    docker:
-    - image: cimg/node:current
-    steps:
-    - checkout
-    # - restore_cache:
-    #     key: lock-{{ checksum "package-lock.json" }}
-    # - run:
-    #     name: Install dependencies
-    #     command: npm install
-    # - save_cache:
-    #     key: lock-{{ checksum "package-lock.json" }}
-    #     paths:
-    #     - node_modules
-    # - persist_to_workspace:
-    #     root: ~/project
-    #     paths:
+
     #     - node_modules
 
   lint_commit_message:
     working_directory: ~/project
     docker:
-    - image: cimg/node:18.9.0
+    - image: cimg/node:current
     steps:
     - checkout
-    - run: npm install --save-dev husky
-    - run: npx husky init
+    - run: sudo npm install --save-dev husky
+    - run: sudo npx husky init
     - run: echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
           
 
 # Add commit message linting to commit-msg hook
         
-    - run: npx commitlint --from HEAD~1 --to HEAD --verbose
+    - run: sudo npx commitlint --from HEAD~1 --to HEAD --verbose
     - run:
         name: Define environment variable with latest commit's message
         command: |
@@ -49,5 +32,4 @@ workflows:
   version: 2
   commit:
     jobs:
-    - setup
-    - lint_commit_message: { requires: [setup] }
+    - lint_commit_message
