@@ -3,9 +3,9 @@ version: 2
 
 jobs:
   setup:
-  working_directory: ~/project
-  docker:
-  - image: circleci/node:latest
+    working_directory: ~/project
+    docker:
+    - image: circleci/node:latest
     steps:
     - checkout
     - restore_cache:
@@ -23,9 +23,9 @@ jobs:
         - node_modules
 
   lint_commit_message:
-  working_directory: ~/project
-  docker:
-  - image: circleci/node:latest
+    working_directory: ~/project
+    docker:
+    - image: circleci/node:latest
     steps:
     - checkout
     - attach_workspace:
