@@ -29,7 +29,7 @@ jobs:
     steps:
     - checkout
     - run: |
-          npm install conventional-changelog-conventionalcommits
+          sudo npm install -g @commitlint/cli
           npm install commitlint@latest
     # - attach_workspace:
     #     at: ~/project
