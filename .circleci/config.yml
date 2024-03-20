@@ -23,7 +23,9 @@ jobs:
         - node_modules
 
   lint_commit_message:
-    <<: *defaults
+  working_directory: ~/project
+  docker:
+  - image: circleci/node:latest
     steps:
     - checkout
     - attach_workspace:
